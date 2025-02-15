@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>WordPress Jobs Monitor</title>
+        <link rel="stylesheet" href="/styles.css" />
+    </head>
+    <body>
+        <div class="container">
+            <h1 class="title">📋 WordPress Job Listings</h1>
+            <ul class="job-list">
+                <% if (jobs.length > 0) { %> <% jobs.forEach(job => { %>
+                <li class="job-item">
+                    <h3 class="job-title"><%= job.title %></h3>
+                    <h4 class="job-date">🗓️ Published Date: <%= job.date %></h4>
+                    <div class="job-description"><%- job.content %></div>
+                    <a class="job-link" href="<%= job.link %>" target="_blank">🔗 View Job</a>
+                </li>
+                <% }) %> <% } else { %>
+                <li class="no-jobs">⚠️ No jobs found.</li>
+                <% } %>
+            </ul>
+        </div>
+    </body>
+</html>
